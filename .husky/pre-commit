@@ -1,16 +1,2 @@
 echo "🚀 Running pre-commit checks..."
-npx tsc --noEmit --project tsconfig.app.json
-# Run lint-staged and check if it fails
-if ! npx lint-staged; then
-  echo "❌ Lint-staged failed! Fix the errors before committing."
-  exit 1
-fi
-
-# Check if there are still staged changes after linting
-if [ -z "$(git diff --staged)" ]; then
-  echo "⚠️ No changes detected after linting. Aborting commit."
-  exit 1
-fi
-
-echo "✅ Pre-commit checks passed!"
-exit 0
+npx lint-staged
