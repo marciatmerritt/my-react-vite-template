@@ -1,8 +1,8 @@
 {
-  "src/**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix --cache"],
-  "**/*.ts": "bash -c \"tsc $* --noEmit\"",
+  "**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix --cache"],
+  "*.ts?(x)": ["tsc --noEmit"],
   "*.{json,md}": ["prettier --write"],
   "*.{css,scss}": ["stylelint --fix --cache", "prettier --write"],
   "*.{yaml,yml,toml}": ["prettier --write"],
-  "*.{png,*.jpeg,*.jpg,*.gif,*.svg}": ["imagemin-lint-staged"]
+  "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged"]
 }
