@@ -1,0 +1,20 @@
+{
+  "src/**/*.{ts,tsx,js,jsx}": [
+    "prettier --write",
+    "eslint --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "tsc --noEmit --project tsconfig.app.json"
+  ],
+  "*.{json,md}": [
+    "prettier --write"
+  ],
+  "*.{css,scss}": [
+    "stylelint --fix --cache --cache-location node_modules/.cache/.stylelintcache",
+    "prettier --write"
+  ],
+  "*.{yaml,yml,toml}": [
+    "prettier --write"
+  ],
+"*.{png,*.jpeg,*.jpg,*.gif,*.svg}": [
+  "imagemin-lint-staged"
+  ]
+}

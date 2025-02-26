@@ -1,0 +1,51 @@
+{
+  "types": [
+    { "value": "init", "name": "🚀 init: start project or task" },
+    { "value": "feat", "name": "✨ feat: add new functionality" },
+    { "value": "fix", "name": "🐛 fix: resolve bug in existing functionality" },
+    { "value": "docs", "name": "📚 docs: update documentation only" },
+    {
+      "value": "style",
+      "name": "💄 style: apply code style changes (formatting, whitespace)"
+    },
+    {
+      "value": "refactor",
+      "name": "♻️ refactor: restructure code without changing behavior"
+    },
+    { "value": "perf", "name": "🚀 perf: improve performance" },
+    { "value": "test", "name": "🧪 test: add or update tests" },
+    {
+      "value": "build",
+      "name": "🏗 build: modify build system or dependencies"
+    },
+    {
+      "value": "ci",
+      "name": "⚙️ ci: update CI/CD configuration (GitHub Actions, Jenkins, etc.)"
+    },
+    {
+      "value": "chore",
+      "name": "🛠 chore: perform maintenance tasks (configs, scripts, etc.)"
+    },
+    { "value": "revert", "name": "⏪ revert: undo previous commit" }
+  ],
+  "scopes": [
+    { "name": " " },
+    { "name": "core" },
+    { "name": "ui" },
+    { "name": "backend" },
+    { "name": "api" },
+    { "name": "database" },
+    { "name": "docs" },
+    { "name": "config" }
+  ],
+  "messages": {
+    "type": "select the type of change:",
+    "scope": "specify the scope of this change (optional, press enter to skip):",
+    "subject": "write a short, lowercase, imperative description (max 50 chars):\n",
+    "body": "provide a longer description (optional, press enter to skip):\n",
+    "footer": "reference any issues (e.g., #123) (optional, press enter to skip):\n",
+    "confirmCommit": "confirm commit message?"
+  },
+  "allowBreakingChanges": ["feat", "fix", "refactor"],
+  "subjectLimit": 50
+}

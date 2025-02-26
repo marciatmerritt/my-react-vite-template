@@ -1,0 +1,67 @@
+{
+  "name": "react-vite-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint:eslint": "eslint src/**/*.{ts,tsx,js,jsx,json}",
+    "lint:eslint:fix": "eslint src/**/*.{ts,tsx,js,jsx,json} --fix",
+    "lint:stylelint": "stylelint src/**/*.{css,scss}",
+    "lint:stylelint:fix": "stylelint src/**/*.{css,scss} --fix",
+    "format:check": "prettier --check . --log-level=warn --ignore-path ./.gitignore",
+    "format:fix": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --watch --noEmit",
+    "lint": "npm run lint:eslint && npm run lint:stylelint && npm run format:check && npm run type-check",
+    "prepare": "husky",
+    "pre-commit": "lint-staged",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/cz-config.json"
+    }
+  },
+  "dependencies": {
+    "imagemin-lint-staged": "^0.5.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "commitizen": "^4.3.1",
+    "cz-customizable": "^7.4.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-714736e-20250131",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.2",
+    "stylelint": "^16.14.1",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-standard": "^37.0.0",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.1"
+  }
+}
