@@ -13,17 +13,32 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["vite/client", "vitest/globals", "node"],
 
     /* Linting */
     "strict": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@services/*": ["src/services/*"],
+      "@pages/*": ["src/pages/*"],
+      "@types/*": ["src/types/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "tests"],
   "exclude": ["node_modules", "dist"]
 }

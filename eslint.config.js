@@ -44,17 +44,17 @@ export default tseslint.config(
         'error',
         {
           groups: [
-            ['^\\u0000'], // Side effects
             ['^react$', '^@?\\w'], // Packages
             ['^@', '^'], // Aliases and other imports
             ['^\\./'], // Relative imports
+            ['^\\u0000'], // Side effects
             ['^.+\\.(module.css|module.scss|css|scss)$'], // Styles
             ['^.+\\.(gif|png|svg|jpg)$'], // Assets
           ],
         },
       ],
+      'simple-import-sort/imports': 'error',
       'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': 'warn',
     },
     settings: {
       react: {

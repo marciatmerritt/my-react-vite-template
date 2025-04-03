@@ -1,47 +1,52 @@
 # React Vite Starter Template with TypeScript, ESLint, Stylelint, Prettier, Husky, Commitlint, Commitizen, Lint-Staged, and Vitest
 
-# Table of Contents
+> ⚛️ A modern React + Vite starter template featuring TypeScript, ESLint, Prettier, Stylelint, Commitlint, Husky, and Vitest — with clean code and scalable structure in mind.
 
-1.  [Introduction](#introduction)
-2.  [Features](#features)
-3.  [Prerequisites and Required Tools](#prerequisites-and-required-tools)
-4.  [Quick Start](#quick-start)
-5.  [Project Setup & Configuration](#project-setup--configuration)
-    1.  [Create a New Vite Project](#1️⃣-create-a-new-vite-project-📂)
-    2.  [Initialize Git](#2️⃣-initialize-git)
-    3.  [Clean Up](#3️⃣-clean-up-🧹🗑️)
-    4.  [Create `nvmrc`](#4️⃣-create-nvmrc)
-    5.  [Start the Development Server](#5️⃣-start-the-development-server)
-    6.  [Editor Configuration](#6️⃣editor-configuration)
-    7.  [VS Code Configuration](#7️⃣vs-code-configuration)
-6.  [Install & Configure Code Quality Tools](#🔍-install--configure-code-quality-tools)
-    1.  [ESLint & Prettier](#install-eslint--prettier)
-    2.  [Stylelint (`.stylelintrc`)](#install--configure-stylelint-stylelintrc)
-7.  [Update Package.json Scripts](#update-packagejson-scripts)
-8.  [Git Hooks (Husky, Commitlint, Commitizen, and Lint-Staged)](#git-hooks-husky-commitlint-commitizen-and-lint-staged)
-9.  [8️⃣ Vitest Configuration](#8️⃣-vitest-configuration)
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Prerequisites](#️-prerequisites-and-required-tools)
+3. [Quick Start](#-quick-start-tldr)
+4. [For Beginners](#-for-beginners-what-is-all-this)
+5. [Getting Started](#getting-started-project-setup)
+   - [Create a New Vite Project](#create-a-new-vite-project)
+   - [Initialize Git](#initialize-git)
+   - [Clean Up Boilerplate](#clean-up-boilerplate)
+   - [Configure `.gitignore`](#configure-gitignore)
+   - [Create `.nvmrc`](#create-nvmrc)
+   - [Run the Dev Server](#run-the-dev-server)
+6. [Editor & VS Code Setup](#editor--vs-code-setup)
+7. [Code Quality Tooling](#code-quality-tooling)
+   - [ESLint](#eslint)
+   - [Prettier](#prettier)
+   - [Stylelint](#stylelint)
+8. [Git Hooks & Commit Standards](#-git-hooks--commit-standards)
+9. [Testing with Vitest](#-testing-with-vitest)
+10. [Environment Variables](#-environment-variables)
+11. [Path Aliases](#-path-aliases)
 
 ## Introduction
 
-This template is designed to streamline the setup of a new **React Vite** project with essential configurations for **linting, formatting, and best practices**. It provides a solid foundation for scalable applications, featuring **TypeScript** for type safety and a robust suite of developer tools.
+This template is designed to streamline the setup of a new **React Vite** project with essential configurations for linting, formatting, testing, and best practices. It provides a solid foundation for scalable applications, featuring **TypeScript** for type safety and a robust suite of developer tools.
 
-## Features 🎁✨
+### Features 🎁✨
 
 - ⚡ **Vite + React + TypeScript** – Fast and modern development stack.
 - 🎨 **ESLint, Prettier, Stylelint** – Automated linting & formatting.
 - 🔄 **Husky & Lint-Staged** – Pre-commit Git hooks automation.
 - 📝 **Commitlint & Commitizen** – Enforces and standardizes commit messages.
 - 🧪 **Vitest** – Unit testing framework.
+- 🔗 `vite-tsconfig-paths` – Automatically maps TypeScript path aliases in Vite.
 
 For more in-depth explanations, visit the [**LEARNING_LOG.md**](docs/LEARNING_LOG.md) file 📚💡.
 
-## Prerequisites and Required Tools 🛠️
+## 🛠️ Prerequisites and Required Tools
 
 To ensure consistency, install these required tools:
 
-- **Node.js:** (version specified in `.nvmrc`) - [**Node.js**](https://nodejs.org/)
+- **Node.js:** (Use the latest LTS version or check `.nvmrc` for the specific version.) - [**Node.js**](https://nodejs.org/)
 - **npm:** (comes with Node.js) - [**npm**](https://www.npmjs.com/)
-- **nvm (Node Version Manager):** (recommended) - [**nvm**](https://github.com/nvm-sh/nvm)
+- **nvm (Node Version Manager):** - [**nvm**](https://github.com/nvm-sh/nvm)
 - **VS Code:** (recommended editor) - [**VS Code**](https://code.visualstudio.com/)
 - **VS Code Extensions:**
   - ESLint: `dbaeumer.vscode-eslint`
@@ -53,50 +58,120 @@ To ensure consistency, install these required tools:
 
 ---
 
-## Quick Start ⚡
+## ⚡ Quick Start (TL;DR)
 
-1. 📥 **Clone:** `git clone <your_repository_url>`
-2. 📂 **Install:** `cd <your_project_name> && npm install`
-3. 🚀 **Start:** `npm run dev`
+```bash
+git clone <your-repository-url>
+cd <your-project-name>
+nvm use
+npm install
+npm run dev
+```
 
 This will start the Vite development server at `http://localhost:5173/`.
 
 ---
 
-## Project Setup & Configuration ⚙️📑🛠️
+## 🧠 For Beginners: What Is All This?
 
-### 1️⃣ Create a New Vite Project 📂
+If you're new to these tools, here's what they do in plain English:
+
+- **Vite**: Development server and build tool, fast and modern, Like Create React App but faster. It's the engine running your app.
+- **TypeScript**: Helps catch bugs early by adding types to JavaScript.
+- **ESLint**: Finds and fixes problems in your JavaScript/TypeScript code.
+- **Prettier**: Automatically formats your code so it looks consistent.
+- **Stylelint**: Does what ESLint does, but for your CSS.
+- **Husky + Lint-Staged**: Makes sure your code is clean before you commit it.
+- **Commitlint + Commitizen**: Helps you write structured commit messages via prompts.
+- **Vitest**: A testing library and fast way to test your code to make sure it works.
+
+---
+
+### When to Use This Boilerplate
+
+This template is designed for **fast, modern React development** using [Vite](https://vitejs.dev/) as the build tool. Use this boilerplate when:
+
+- You're building a **single-page application (SPA)** or frontend-only app
+- You want a fast, lightweight, and highly customizable React setup
+- You don’t need built-in server-side rendering (SSR) or file-based routing
+- You prefer to manage your own routing (e.g., using `react-router-dom`)
+- You're building **component libraries, admin panels, dashboards**, or design systems
+- You want a robust developer experience with:
+  - TypeScript
+  - ESLint, Prettier, and Stylelint
+  - Commit hooks with Husky and Commitizen
+  - Vitest for unit testing
+
+> ⚠️ If you need server-side rendering (SSR), static site generation (SSG), API routes, or file-based routing, consider using a Next.js-based boilerplate instead.
+
+### Who is this for? 🤔💡
+
+This template is designed **for my future self**—someone who wants to quickly set up a new **React + Vite** project with all the essential tools, configurations, and best practices in place. It serves as both a **starter template** and a **personal knowledge base** to:
+
+- 🚀 **Kickstart new projects** without redoing setup steps.
+- 🔧 **Reference commonly used tools** (ESLint, Prettier, Stylelint, Husky, Vitest, etc.).
+- 📌 **Solve recurring issues** without having to research them again.
+- 🏗️ **Maintain consistency** across different projects by using a structured, well-documented setup.
+
+### 🗂️ Project Structure
+
+```
+my-app/
+├── .vscode/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   ├── App.tsx
+│   ├── main.tsx
+├── .editorconfig
+├── .eslintrc.js
+├── .prettierrc
+├── .stylelintrc
+├── .gitignore
+├── vite.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+## Getting Started: Project Setup
+
+⚙️📑🛠️
+
+### 📂 Create a New Vite Project
 
 Use this command, replacing `<your-app-name>` with your desired project name
 
 ```bash
-# For npm 7+, an extra double-dash is required
 npm create vite@latest <your-app-name> -- --template react-ts
 cd <your-app-name>
 npm install
 ```
 
-### 2️⃣ Initialize Git
+### Initialize Git
 
 ```bash
 git init
 ```
 
-### 3️⃣ Clean Up 🧹🗑️
+After running this command, your project is now a Git repository.
 
-#### 🗑️ Delete Unnecessary Files (`App.css` and `assets` directory)
+### Clean Up Boilerplate
+
+The default Vite React template includes example content that may not be necessary for your project. This section helps you **remove boilerplate code** and create a **cleaner, minimal starting point**.
+
+**🗑️ Delete Unnecessary Files (`App.css` and `assets` directory)**
+Run the following commands to delete default assets and styles:
 
 ```bash
 rm ./src/App.css
 rm -r ./src/assets
 ```
 
-- **Removes default styles** from `App.tsx` so you can use your own.
-- **Deletes sample assets** to keep the project lightweight (skip if needed).
-
-#### ✂️ Simplify `App.tsx`
-
-Replace its contents with a minimal version:
+**✂️ Simplify `App.tsx`**
+Replace the default content in `src/App.tsx` with a minimal version:
 
 ```tsx
 function App() {
@@ -106,7 +181,8 @@ function App() {
 export default App;
 ```
 
-#### ✂️ Minimize `index.css` to include only essential styles
+**🎨 Minimize `index.css`**
+Update `src/index.css` to only include essential styles:
 
 ```css
 body {
@@ -114,7 +190,35 @@ body {
 }
 ```
 
-### 4️⃣ Create `nvmrc`:
+### Configure `.gitIgnore`
+
+Vite automatically generates a `.gitignore` when creating a new project. Ensure that it includes the following:
+
+```ini
+# VS Code settings
+.vscode/
+
+# Dependency and lock files
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist/
+build/
+
+# Environment variables
+  .env*
+
+# Logs and caches
+*.log*
+
+tmp/
+```
+
+If using any additional tools or directories that should be ignored, update the `.gitignore` accordingly.
+
+### Create `nvmrc`:
 
 In the project root, create `.nvmrc` and add the desired Node.js version (e.g., `v22.9.0`).
 
@@ -122,7 +226,7 @@ In the project root, create `.nvmrc` and add the desired Node.js version (e.g., 
     v22.9.0  // Example: Use Node.js version 22.9.0
     ```
 
-### 5️⃣ Start the Development Server
+### Run the Dev Server
 
 ```bash
 npm run dev
@@ -130,7 +234,9 @@ npm run dev
 
 - Default URL: **http://localhost:5173/**
 
-### 6️⃣Editor Configuration
+## Editor & VS Code Setup
+
+### `.editorconfig`
 
 Create `.editorconfig` in root directory and add the following content:
 
@@ -139,7 +245,7 @@ root = true
 
 [*]
 charset = utf-8
-end_of_line = lf
+end_of_line = crlf
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -173,9 +279,9 @@ trim_trailing_whitespace = false
 indent_size = 4
 ```
 
-### 7️⃣VS Code Configuration
+End_of_line = crlf is the windows line endings. If you are working on a linux or mac machine, you will want to change this to lf.
 
-#### VS Code Settings (`.vscode/settings.json`)
+### VS Code Settings (`.vscode/settings.json`)
 
 📌 _Create and configure VS Code settings:_
 
@@ -193,7 +299,7 @@ indent_size = 4
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "files.eol": "\n",
+  "files.eol": "\r\n",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -218,11 +324,11 @@ indent_size = 4
 
 ---
 
-## 🔍 Install & Configure Code Quality Tools
+## 🎨 Code Quality Tooling
 
-Vite includes ESLint v.9 by default, but additional plugins and configurations can enhance your project's code quality.
+### ESLint
 
-### ESLint & Prettier
+🛠️ ESLint is a **JavaScript/TypeScript linter** that helps enforce coding standards and detect potential errors.
 
 **ESLint plugins for React, hooks, refresh, and compiler**
 
@@ -236,7 +342,9 @@ npm install -D eslint-plugin-react eslint-plugin-react-compiler
 npm install -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 
-**Prettier integration and import sorting**
+### Prettier
+
+Prettier 🖌️ is an **automatic code formatter** that enforces a consistent style.
 
 ```bash
 npm install -D \
@@ -247,15 +355,9 @@ npm install -D \
   prettier
 ```
 
-The **Airbnb style guide** provides stricter coding standards and consistency but is **optional**. Omit it if you prefer flexibility.
-
-```bash
-npm install -D eslint-config-airbnb-base eslint-config-airbnb-typescript
-```
-
 #### Modify `eslint.config.js`:
 
-Vite includes a default `eslint.config.js` file in the project's root. Enhancing this configuration improves **type-aware linting**, **React best practices**, and **code formatting**.
+Vite includes a default `eslint.config.js` file in the project's root. This configuration uses ESLint's newer flat config format (v9+), which provides better performance and flexibility compared to the older configuration format. Enhancing this configuration improves **type-aware linting**, **React best practices**, and **code formatting**.
 
 ```js
 import js from '@eslint/js';
@@ -277,10 +379,8 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       // ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.strict, // 'airbnb-base',
-      // 'airbnb-typescript',
-      // If using Airbnb style guide, uncomment the following lines:
-      eslintPluginPrettier, // Prettier should be last
+      ...tseslint.configs.strict,
+      eslintPluginPrettier,
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -299,14 +399,14 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react-compiler/react-compiler': 'error',
-      ...react.configs.recommended.rules, // Enables recommended React rules
-      ...react.configs['jsx-runtime'].rules, // Important for React 17+
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
       'simple-import-sort/imports': [
         'error',
         {
           groups: [
-            ['^\\u0000'], // Side effects
             ['^react$', '^@?\\w'], // Packages
+            ['^\\u0000'], // Side effects
             ['^@', '^'], // Aliases and other imports
             ['^\\./'], // Relative imports
             ['^.+\\.(module.css|module.scss|css|scss)$'], // Styles
@@ -314,9 +414,8 @@ export default tseslint.config(
           ],
         },
       ],
-      // 'react/react-in-jsx-scope': 'off', // Often needed with newer React versions
+      'simple-import-sort/imports': 'error',
       'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': 'warn',
     },
     settings: {
       react: {
@@ -327,18 +426,22 @@ export default tseslint.config(
 );
 ```
 
-#### Create `.prettierrc` (Formatting Rules)
+For more advanced ESLint rules, see [ESLint Documentation](https://eslint.org/docs/latest/).
+
+#### Create `.prettierrc`
 
 In your **project root**, create a file named `.prettierrc` and add the following configuration:
 
 ```json
 {
+  "bracketSpacing": true,
+  "semi": true,
   "trailingComma": "es5",
   "tabWidth": 2,
-  "semi": true,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "endOfLine": "crlf"
 }
 ```
 
@@ -346,35 +449,51 @@ In your **project root**, create a file named `.prettierrc` and add the followin
 
 To prevent Prettier from formatting unnecessary files (e.g., **node_modules**, build artifacts), create a `.prettierignore` file in the root directory:
 
-```txt
+```ini
 # Ignore dependency and configuration lock files
+node_modules/
 package-lock.json
 yarn.lock
 
-# Ignore development environment files
-.vscode
-.idea
+# Editor settings and system files
+.vscode/
+.idea/
 .DS_Store
 
 # Ignore Next.js build artifacts
 .next
 
-# Ignore build and output directories
-build
-dist
-coverage
-node_modules
+# Logs and temporary files
+*.log
+.tmp/
 
-# Ignore all HTML files
-**/*.html
-
+# Build and output directories
+dist/
+build/
+coverage/
 ```
+
+For more details, visit the [Prettier Documentation](https://prettier.io/).
 
 ---
 
-### Install & Configure Stylelint (`.stylelintrc`)
+#### Add Scripts to `package.json`
 
-Stylelint helps enforce **consistent CSS/SCSS styling** and prevents **common errors** in stylesheets.
+```json
+"scripts": {
+  "lint:eslint": "eslint src/**/*.{ts,tsx,js,jsx,json}",
+  "lint:eslint:fix": "eslint src/**/*.{ts,tsx,js,jsx,json} --fix",
+  "type-check": "tsc --noEmit",
+  "type-check:watch": "tsc --watch --noEmit",
+  "format:check": "prettier --check . --log-level warn --ignore-path ./.gitignore",
+  "format:fix": "prettier --write .",
+  // ... other scripts
+}
+```
+
+### Stylelint
+
+Stylelint enforces **best practices in CSS/SCSS** to maintain clean styles. If your project uses **SCSS or CSS Modules**, you’ll need additional Stylelint configurations for proper linting.
 
 To install **Stylelint and the Standard Config**:
 
@@ -382,18 +501,27 @@ To install **Stylelint and the Standard Config**:
 npm install -D stylelint stylelint-config-standard
 ```
 
-Stylelint uses:
+To enable **SCSS linting**, install:
 
-1️⃣ **`.stylelintrc`** – Defines styling rules.
-2️⃣ **`.stylelintignore`** – Specifies files to **exclude from linting** (e.g., third-party styles, `node_modules`).
+```bash
+npm install -D stylelint-config-recommended-scss
+```
 
-#### 1. Create `.stylelintrc` (Linting Rules)
+To enable **CSS Modules linting** properly, install:
 
-In your **project root**, create a `.stylelintrc` file and add:
+```bash
+npm install -D stylelint-config-css-modules
+```
+
+#### 1. Create `.stylelintrc` (Linting Rules) in project root and add:
 
 ```json
 {
-  "extends": ["stylelint-config-standard"],
+    "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss" // Include if needed, Enables SCSS-specific linting rules
+    "stylelint-config-css-modules" // Include if needed, Enables CSS Modules-specific rules
+  ],
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
@@ -411,98 +539,30 @@ In your **project root**, create a `.stylelintrc` file and add:
 
 #### 2. Create `.stylelintignore` (Ignored Files)
 
-To exclude unnecessary files from Stylelint, create a **`.stylelintignore`** file:
-
-```txt
-# Ignore dependency and configuration lock files
-package-lock.json
-yarn.lock
-
-# Ignore development environment files
-.vscode
-.idea
-.DS_Store
-
-# Ignore Next.js build artifacts
-.next
-
-# Ignore build and output directories
-build
-dist
-coverage
-node_modules
-public
-```
-
-If your project uses **SCSS or CSS Modules**, additional Stylelint configurations are required.
-
-#### 1️⃣ SCSS Support
-
-To enable **SCSS linting**, install:
+Create a copy of `.prettierignore` and rename it to `.stylelintignore`:
 
 ```bash
-npm install -D stylelint-config-recommended-scss
+copy .prettierignore .stylelintignore
 ```
 
-Then update **`.stylelintrc`**:
-
-```json
-{
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recommended-scss" // Enables SCSS-specific linting rules
-  ]
-  // ... other rules
-}
-```
-
----
-
-#### 2️⃣ CSS Modules Support
-
-To lint **CSS Modules** properly, install:
-
-```bash
-npm install -D stylelint-config-css-modules
-```
-
-Then update **`.stylelintrc`**:
-
-```json
-{
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-css-modules" // Enables CSS Modules-specific rules
-  ]
-  // ... other rules
-}
-```
-
----
-
-## Update Package.json Scripts
-
-The following scripts are added to your `package.json` file to provide convenient commands for running the code quality tools.
+#### Add Scripts to `package.json`
 
 ```json
 "scripts": {
-  "lint:eslint": "eslint src/**/*.{ts,tsx,js,jsx,json}", // Runs ESLint on all specified files.
-  "lint:eslint:fix": "eslint src/**/*.{ts,tsx,js,jsx,json} --fix", // Runs ESLint and attempts to fix issues.
-  "lint:stylelint": "stylelint src/**/*.{css,scss}", // Runs Stylelint on all specified style files.
-  "lint:stylelint:fix": "stylelint src/**/*.{css,scss} --fix", // Runs Stylelint and attempts to fix issues.
-  "format:check": "prettier --check . --log-level warn --ignore-path ./.gitignore", // Checks if files are formatted with Prettier.
-  "format:fix": "prettier --write .", // Formats all files with Prettier.
-  "type-check": "tsc --noEmit", // Runs TypeScript type checking.
-  "type-check:watch": "tsc --watch --noEmit", // Runs TypeScript type checking in watch mode.
-  "lint": "npm run lint:eslint && npm run lint:stylelint && npm run format:check && npm run type-check" // Runs all linting and type checking scripts.
-},
+  "lint:stylelint": "stylelint src/**/*.{css,scss}",
+  "lint:stylelint:fix": "stylelint src/**/*.{css,scss} --fix",
+  "lint": "npm run lint:eslint && npm run lint:stylelint && npm run format:check && npm run type-check",
+  // ... other scripts
+}
 ```
 
-## Git Hooks
+---
 
-### 7️⃣ Husky, Commitlint, Commitizen, and Lint-Staged
+## 🔒 Git Hooks & Commit Standards
 
-#### a. Install Dependencies
+### Husky + Lint-Staged + Commitlint + Commitizen
+
+#### Install Dependencies
 
 ```bash
 npm install -D \
@@ -510,14 +570,12 @@ husky \
 @commitlint/{config-conventional,cli} \
 commitizen \
 cz-customizable \
-cz-conventional-changelog \
-lint-staged \
-imagemin-lint-staged
+lint-staged
 ```
 
-#### b. Configure Husky
+#### Configure Husky
 
-Initializing Husky will create a `pre-commit` script in `.husky/` and updates the prepare script in the `package.json`.
+Initializing Husky will create a `pre-commit` script in `.husky/` and creates a prepare script in the `package.json`.
 
 ```bash
 npx husky init
@@ -559,44 +617,28 @@ Since Git is in the root (`project/`), but Husky needs to be installed inside `f
 
 This ensures Husky is installed inside `frontend/` but recognizes `.git` from the root.
 
-#### c. Run the Prepare Script to create a `.husky/` directory
+#### Run Prepare
+
+Run prepare script to create a `.husky/` directory
 
 ```bash
 npm run prepare
 ```
 
-#### d. Update `.husky/pre-commit` Hook
+#### Pre-commit Hook
 
 Modify your `.husky/pre-commit` script to run lint staged:
 
 `pre-commit`:
 
-```bash
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "Running pre-commit checks..."
-
-# Run lint-staged
-echo "Running lint-staged..."
+```sh
+echo "🚀 Running pre-commit checks..."
 npx lint-staged
-
-# Check if lint-staged was successful
-if [ $? -ne 0 ]; then
-  echo "lint-staged failed. Aborting commit."
-  exit 1
-fi
-
-echo "Pre-commit checks passed!"
-
-exit 0
 ```
 
-Ensure that the `.husky/pre-commit` file has executable permissions. You can add these permissions using the following command: `chmod +x .husky/pre-commit`
+#### Configure commitlint:
 
-#### e. Configure commitlint (.commitlintrc):
-
-Create `.commitlintrc`:
+Create `.commitlintrc` in root directory:
 
 ```json
 {
@@ -606,27 +648,45 @@ Create `.commitlintrc`:
 
 Then, set up a Husky **commit-msg** hook:
 
+Create `.husky/commit-msg` and include:
+
 ```sh
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+echo "🚀 Running commitlint checks..."
+npx --no -- commitlint --edit $1
 ```
 
-This ensures that commit messages follow the conventional commit format.
+Ensure that the `.husky/pre-commit` and `.husky/commit-msg` have executable permissions by using the following command:
+
+```bash
+chmod +x .husky/pre-commit
+chmod +x .husky/commit-msg
+```
 
 ---
 
-#### f. Configure Commitizen
+#### Configure Commitizen
 
 Add the following to your `package.json` file:
 
 ```json
+"scripts": {
+  "commit": "git-cz",
+  // ... other scripts
+},
 "config": {
   "commitizen": {
     "path": "cz-customizable"
   },
   "cz-customizable": {
-    "config": "cz-config.json"
-  }
-}
+    "config": "config/cz-config.json"
+  },
+},
+```
+
+Create a directory for the Commitizen configuration:
+
+```bash
+mkdir -p config
 ```
 
 Create `config/cz-config.json` (customize as needed):
@@ -661,9 +721,9 @@ Create `config/cz-config.json` (customize as needed):
 }
 ```
 
-To use Commitizen, run `git cz` or `npm run commit`.
+To use Commitizen, run `npm run commit`.
 
-#### g. Configure Lint-Staged (.lintstagedrc)
+#### Configure Lint-Staged
 
 The `.lintstagedrc` file allows for more in-depth configuration of Lint-Staged, and allows for running different commands on different file types.
 
@@ -671,46 +731,47 @@ Create `.lintstagedrc`:
 
 ```json
 {
-  "src/**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix --cache", "tsc --noEmit"],
+  "**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix --cache"],
+  "*.ts?(x)": ["tsc --noEmit"],
   "*.{json,md}": ["prettier --write"],
   "*.{css,scss}": ["stylelint --fix --cache", "prettier --write"],
-  "*.{yaml,yml,toml}": ["prettier --write"],
-  "*.{png,*.jpeg,*.jpg,*.gif,*.svg}": ["imagemin-lint-staged"]
+  "*.{yaml,yml,toml}": ["prettier --write"]
 }
 ```
 
-#### h. Add Husky hooks and scripts to `package.json`
+#### Add Lint-Staged Scripts to `package.json`
 
 ```json
 "scripts": {
-  "prepare": "husky",
   "pre-commit": "lint-staged",
-  "commit": "git-cz",
   // ... other scripts
 }
 ```
 
-Then, set up a Husky **pre-commit** hook:
-
-```sh
-npx husky add .husky/pre-commit "npx lint-staged"
-```
-
 ---
 
-### 8️⃣ Vitest Configuration
+## ✅ Testing with Vitest
 
-#### a. Install Vitest
+### Install Vitest and Related Dependencies
 
 ```bash
-npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom
+npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom @vitest/coverage-v8
 ```
 
-#### b. Vitest Configuration (vite.config.ts)
+#### 📌 What Each Package Does:
 
-Add vitest configuration to your `vite.config.ts` file:
+- `vitest` → Unit testing framework for Vite.
+- `@testing-library/react` → Utilities for rendering React components in tests.
+- `@testing-library/jest-dom` → Custom matchers for asserting the state of the DOM.
+- `@testing-library/user-event` → Simulates real user interactions (clicks, typing, etc.).
+- `jsdom` → Simulates a browser environment for tests.
+- `@vitest/coverage-v8` → Generates test coverage reports.
 
-```typescript
+### Add Vitest Settings
+
+Modify your **`vite.config.ts`** file to include Vitest settings:
+
+```ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -718,45 +779,362 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
+    includeSource: ['src/**/*.{js,ts}'],
     environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
+    setupFiles: 'tests/setupTests.ts',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      include: ['src/**'],
+      exclude: ['src/tests/**', 'tests/**'],
+    },
   },
 });
 ```
 
-#### c. Create setupTests.ts
+#### Create Setup file
 
-Create a `src/setupTests.ts` file:
+Create a directory for the tests:
 
-```typescript
-import '@testing-library/jest-dom/vitest';
+```bash
+mkdir -p tests
 ```
 
-#### d. Create a Test File
+Create a **setup file** to configure global test settings for testing `tests/setupTests.ts`
 
-Create a test file, for example, `src/App.test.tsx`:
+📌 Create the file:
+📂 **`tests/setupTests.ts`**
 
-```typescript
-import { render, screen } from '@testing-library/react';
-import App from './App';
+```ts
+import '@testing-library/jest-dom/vitest';
 
-test('renders hello world', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/hello world/i);
-  expect(linkElement).toBeInTheDocument();
+import { cleanup } from '@testing-library/react';
+import { afterEach } from 'vitest';
+
+afterEach(() => {
+  cleanup();
 });
 ```
 
-#### e. Update package.json scripts
+#### Update TypeScript Config
+
+Modify your **`tsconfig.app.json`** to ensure TypeScript recognizes test files.
+
+📌 Add the following under `"compilerOptions"`:
+
+```json
+"types": ["vitest/globals", "node"]
+```
+
+📌 Ensure test files are included:
+
+```json
+"include": ["src", "tests"]
+```
+
+#### Create Test File
+
+(`src/App.test.tsx`)
+
+Let's create a **React component test** for `App.tsx`.
+
+```ts
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
+import App from './App';
+
+describe('App Component', () => {
+  it('renders "Hello world!" text', () => {
+    render(<App />);
+    expect(screen.getByText(/hello world!/i)).toBeInTheDocument();
+  });
+
+  it('renders without crashing', () => {
+    expect(() => render(<App />)).not.toThrow();
+  });
+});
+
+```
+
+#### Add Vitest Scripts
+
+📌 Modify your `package.json`:
 
 ```json
 "scripts": {
-  // ... other scripts
   "test": "vitest",
+  "test:watch": "vitest --watch",
   "test:coverage": "vitest run --coverage"
 }
 ```
 
+#### Run Tests
+
+✅ Run **all tests**:
+
+```bash
+npm test
+```
+
+✅ Run **tests in watch mode**:
+
+```bash
+npm run test:watch
+```
+
+✅ Run **test coverage report**:
+
+```bash
+npm run test:coverage
+```
+
 ---
+
+## 🌐 Environment Variables
+
+Environment variables are essential for managing sensitive data, configuring different environments (development, production), and customizing your application's behavior.
+
+### Setting Up Environment Variables
+
+1.  **Create `.env` Files:**
+
+    - In the root of your project, create `.env` files for different environments:
+      - `.env.development` for development settings.
+      - `.env.production` for production settings.
+      - `.env` for default settings (if needed).
+
+2.  **Define Variables:**
+
+    - Add your environment variables to the `.env` files. Remember to prefix variables intended for client-side use with `VITE_`.
+      ```ini
+      # .env.development
+      VITE_API_URL=http://localhost:3000/api
+      VITE_APP_TITLE=My Development App
+      ```
+
+3.  **Access Variables in Code:**
+
+    - Access environment variables in your code using `import.meta.env`.
+      ```ts
+      const apiUrl = import.meta.env.VITE_API_URL;
+      console.log(apiUrl);
+      ```
+
+4.  **Type Declarations (TypeScript):**
+
+    - To ensure type safety, add your custom environment variables to `src/vite-env.d.ts` (create this file if it doesn't exist):
+
+      ```ts
+      /// <reference types="vite/client" />
+
+      interface ImportMetaEnv {
+        readonly VITE_API_URL: string;
+        readonly VITE_APP_TITLE: string;
+        // Add other environment variables here...
+      }
+
+      interface ImportMeta {
+        readonly env: ImportMetaEnv;
+      }
+      ```
+
+5.  In order to use the env variable with the Server in `vite.config.ts`, must change the `vite.config.ts` to the following:
+
+```ts
+/// <reference types="vitest" />
+import react from '@vitejs/plugin-react';
+import * as path from 'path';
+import { defineConfig, loadEnv } from 'vite';
+
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+
+  return {
+    base: '/',
+    plugins: [react()],
+    resolve: {
+      alias: {
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
+        '@assets': path.resolve(__dirname, './src/assets'),
+      },
+    },
+    css: {
+      modules: {
+        generateScopedName: '[name]__[local]___[hash:base64:5]',
+      },
+    },
+    server: {
+      port: parseInt(env.VITE_PORT || '5173'),
+    },
+    test: {
+      globals: true,
+      includeSource: ['src/**/*.{js,ts}'],
+      environment: 'jsdom',
+      setupFiles: 'tests/setupTests.ts',
+      coverage: {
+        reporter: ['text', 'json', 'html', 'lcov'],
+        include: ['src/**'],
+        exclude: ['src/tests/**', 'tests/**'],
+      },
+    },
+  };
+});
+```
+
+### Important Notes
+
+- **Security:** Never commit `.env` files to version control, especially those containing sensitive data. Add all `.env` to `.gitignore` file.
+- **Restart Server:** After creating or modifying `.env` files, restart your Vite development server for the changes to take effect.
+- **Variable Prefix:** Only variables prefixed with `VITE_` are exposed to the browser. Other variables will only be available during build time.
+
+---
+
+## 📦 Path Aliases
+
+Aliases simplify import paths, making your code cleaner and more maintainable.
+
+### Install:
+
+```bash
+npm install -D vite-tsconfig-paths
+```
+
+### Configuring Aliases
+
+1.  **Modify `vite.config.ts`:**
+
+    - Open your `vite.config.ts` file and add or modify the `resolve.alias` section:
+
+      ```ts
+      import react from '@vitejs/plugin-react';
+      import * as path from 'path';
+      import { defineConfig, loadEnv } from 'vite';
+
+      export default defineConfig(({ mode }) => {
+        const env = loadEnv(mode, process.cwd(), '');
+
+        return {
+          plugins: [react(), tsconfigsPaths()],
+          resolve: {
+            alias: {
+              '@components': path.resolve(__dirname, env.VITE_COMPONENTS_DIR),
+              '@utils': path.resolve(__dirname, 'src/utils'),
+              '@assets': path.resolve(__dirname, './src/assets'),
+              // Add more aliases as needed
+            },
+          },
+          // ... other configurations
+        };
+      });
+      ```
+
+    - **Optional:** You can use environment variables to dynamically set alias paths:
+      ```ts
+      // ... (Example code with loadEnv) ...
+      ```
+    - Otherwise, you can define static aliases:
+      ```ts
+      // ... (Example code without loadEnv) ...
+      ```
+
+2.  Configure TypeScript Path Aliases
+
+To configure path aliases, update your `tsconfig.app.json` file with the following:
+
+```json
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "allowJs": false,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "vitest/globals", "node"],
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@services/*": ["src/services/*"],
+      "@pages/*": ["src/pages/*"],
+      "@types/*": ["src/types/*"]
+    }
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+Use in code:
+
+```ts
+import Button from '@components/Button';
+import { formatDate } from '@utils/dateHelpers';
+import logo from '@assets/logo.svg';
+```
+
+### Benefits of Aliases
+
+- **Clean Imports:** Reduces the need for long relative paths.
+- **Maintainability:** Makes refactoring easier, as you only need to update the alias configuration.
+- **Readability:** Improves code readability by using meaningful aliases.
+
+### TypeScript Path Aliases (Optional)
+
+If you're using TypeScript, you can also set up path aliases in your `tsconfig.json` for better type checking:
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"]
+      // Add more aliases here
+    }
+  }
+  // ... other configurations
+}
+```
+
+**Important:** Make sure your `tsconfig.json` `baseUrl` is correctly set.
+
+### Module Resolution: Bundler vs. Node
+
+- **`moduleResolution: "bundler"`:**
+  - Optimized for modern bundlers like Vite and Webpack.
+  - Assumes your bundler handles module resolution, leading to potentially faster build times.
+  - More geared towards modern javascript development.
+- **`moduleResolution: "Node"` (or `"Node16"`):**
+  - Mimics Node.js's module resolution algorithm.
+  - Useful for projects that heavily rely on Node.js-style module resolution.
+  - `"Node16"` is for node versions 16 and above, and has some improvements over `"Node"`.
+  - More compatible with older javascript development.
+
+## In most Vite projects, `bundler` is recommended for its performance benefits. If you encounter module resolution issues, try `"Node"` or `"Node16"`.
 
 🚀 **Happy Coding!** 🎉🎨💻

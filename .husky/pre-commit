@@ -1,2 +1,8 @@
-echo "🚀 Running pre-commit checks..."
+echo "🚀 Running pre-commit checks... Lint-staged"
 npx lint-staged
+
+echo "🚀 Running pre-commit checks... Typescript Type-check"
+npx tsc --noEmit --skipLibCheck --noErrorTruncation
+
+echo "🚀 Running pre-commit checks... Vitest"
+npm run test -- --run
