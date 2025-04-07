@@ -1,6 +1,6 @@
 {
   "types": [
-    { "value": "init", "name": "🚀 init: start project or task" },
+    { "value": "init", "name": "🚀 init: initial commit or setup" },
     { "value": "feat", "name": "✨ feat: add new functionality" },
     { "value": "fix", "name": "🐛 fix: resolve bug in existing functionality" },
     { "value": "docs", "name": "📚 docs: update documentation only" },
